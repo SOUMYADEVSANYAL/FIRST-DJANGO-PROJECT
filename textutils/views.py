@@ -51,10 +51,8 @@ def analyze(request):
     elif(ana == "6"):
         analyzed = ''
         for char in textvar:
-            if (char == '\n'):
-                analyzed=analyzed+' '
-                continue
-            analyzed=analyzed+char
+            if (char != '\n'):
+                analyzed=analyzed+char
         params = {'purpose':'Merged in one line', 'result': analyzed}
         return render(request, 'analyze.html', params)
 
