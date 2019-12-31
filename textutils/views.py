@@ -13,6 +13,8 @@ def analyze(request):
         punctuations = '''!()-[]{};:'"\\,<>./?@#$%^&*_~'''
         analyzed = ""
         for char in textvar:
+            if (char =='\n'):
+                analyzed = analyzed+"\n"
             if char not in punctuations:
                 analyzed = analyzed + char
         params = {'purpose':'After removing punctuations', 'result': analyzed}
@@ -31,6 +33,30 @@ def analyze(request):
         length=len(textvar)
         params = {'purpose':'Number of characters', 'result': length}
         return render(request,'analyze.html',params)
+    
+    elif(ana == "4"):
+        analyzed=''
+        for char in textvar:
+            analyzed=analyzed+char.upper()
+        params = {'purpose':'After capitalisation', 'result': analyzed}
+        return render(request, 'analyze.html', params)
+    
+    elif(ana == "5"):
+        analyzed=''
+        for char in textvar:
+            analyzed=analyzed+char.lower()
+        params = {'purpose':'Changed to lowercase', 'result': analyzed}
+        return render(request, 'analyze.html', params)
+
+    elif(ana == "6"):
+        analyzed = ''
+        for char in textvar:
+            if (char == '\n'):
+                analyzed=analyzed+' '
+                continue
+            analyzed=analyzed+char
+        params = {'purpose':'Merged in one line', 'result': analyzed}
+        return render(request, 'analyze.html', params)
 
     else:
         return HttpResponse("Error")
