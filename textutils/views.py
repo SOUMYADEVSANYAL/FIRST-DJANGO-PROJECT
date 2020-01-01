@@ -7,8 +7,8 @@ def index(request):
     return render(request,'index.html')
 
 def analyze(request):
-    textvar =  request.GET.get('text','No Text')
-    ana = request.GET.get('ana', '0')
+    textvar =  request.POST.get('text','No Text')
+    ana = request.POST.get('ana', '0')
     if (ana == "1"):
         punctuations = '''!()-[]{};:'"\\,<>./?@#$%^&*_~'''
         analyzed = ""
@@ -51,8 +51,10 @@ def analyze(request):
     elif(ana == "6"):
         analyzed = ''
         for char in textvar:
-            if (char != '\n'):
+            if (char != '\n' and char != '\r'):
                 analyzed=analyzed+char
+            else:
+                analyzed=analyzed+' '
         params = {'purpose':'Merged in one line', 'result': analyzed}
         return render(request, 'analyze.html', params)
 
