@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Text Utils</title>
+    <script>
+var i = 0;
+var txt = 'Welcome to the text analyzer!';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,18 +46,17 @@
       </nav>
       <div class="alert alert-dark alert-dismissible fade show" role="alert">
         <strong>Welcome to tXtAnalyzer!</strong> You can do many thing with your text here!
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="typeWriter()">
           <span aria-hidden="true">x</span>
         </button>
       </div>
       <div class="container to-center">
 
 <!--The main form is starting here-->
-
 <form action='/analyze' method='POST'> {% csrf_token %}
 
     <div class="form-group">
-        <label for="exampleFormControlTextarea1"><h1>Welcome to the text analyzer. Enter your text below</h1></label>
+        <label for="exampleFormControlTextarea1"><h1 id="demo" onload="typeWriter()"></h1></label>
         <textarea class="form-control" name='text' id="exampleFormControlTextarea1" rows="9" placeholder="Enter your text here to see the magic"></textarea>
     </div>
 
