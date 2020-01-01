@@ -32,12 +32,15 @@
         </form>
       </nav>
       <div class="alert alert-dark alert-dismissible fade show" role="alert">
-        <strong>Welcome to TextUtils!</strong> You can do many thing with your text here!
+        <strong>Welcome to tXtAnalyzer!</strong> You can do many thing with your text here!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
       </div>
       <div class="container to-center">
+
+<!--The main form is starting here-->
+
 <form action='/analyze' method='POST'> {% csrf_token %}
 
     <div class="form-group">
@@ -46,32 +49,32 @@
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio" class="custom-control-input" id="customSwitch1" value="1">
-        <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
+      <input name="ana1" type="checkbox" class="custom-control-input" id="customSwitch1" value="1">
+      <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio" class="custom-control-input" id="customSwitch2" value="2">
-        <label class="custom-control-label" for="customSwitch2">Remove space</label>
+      <input name="ana2" type="checkbox" class="custom-control-input" id="customSwitch2" value="1">
+      <label class="custom-control-label" for="customSwitch2">Remove space</label>
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio"class="custom-control-input" id="customSwitch3" value="3">
-        <label class="custom-control-label" for="customSwitch3">Count number caharacters</label>
+      <input name="ana3" type="checkbox"class="custom-control-input" id="customSwitch3" value="1">
+      <label class="custom-control-label" for="customSwitch3">Count number caharacters</label>
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio" class="custom-control-input" id="customSwitch4" value="4">
-        <label class="custom-control-label" for="customSwitch4">Change to UPPER CASE</label>
+      <input name="ana4" type="checkbox" class="custom-control-input" id="customSwitch4" value="1">
+      <label class="custom-control-label" for="customSwitch4">Change to UPPER CASE</label>
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio" class="custom-control-input" id="customSwitch5" value="5">
+        <input name="ana5" type="checkbox" class="custom-control-input" id="customSwitch5" value="1">
         <label class="custom-control-label" for="customSwitch5">Change to lower case</label>
     </div>
 
     <div class="custom-control custom-switch">
-        <input name="ana" type="radio" class="custom-control-input" id="customSwitch6" value="6">
+        <input name="ana6" type="checkbox" class="custom-control-input" id="customSwitch6" value="1">
         <label class="custom-control-label" for="customSwitch6">Merge in one line</label>
     </div>
     <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
